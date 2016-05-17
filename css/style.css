@@ -1,8 +1,3 @@
-.brother-page {
-    width: 50%;
-    float: left;
-}
-
 #header {
     height: 100px;
 }
@@ -13,4 +8,24 @@
 
 #brothers {
     height: calc(100% - 100px - 100px);
+}
+
+.brother-page {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+#health {
+    background-color: red;
+    color: white; // Set the text color to white.
+}
+
+#environment {
+    background-color: green;
+    color: white; // Set the text color to white.
+}
+
+.menu, .content, .vertical, #header-large, #header-small {
+    display: none;
 }
