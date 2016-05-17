@@ -7,7 +7,7 @@
 }
 
 #brothers {
-    height: calc(100% - 100px - 100px);
+    height: 70%;
 }
 
 .brother-page {
@@ -26,6 +26,6 @@
     color: white; // Set the text color to white.
 }
 
-.menu, .content, .vertical, #header-large, #header-small {
+.menu, .content, .vertical, .horizontal {
     display: none;
 }
