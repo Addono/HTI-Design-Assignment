@@ -1,5 +1,16 @@
 .brother-page {
     width: 50%;
-    height: 100%;
     float: left;
+}
+
+#header {
+    height: 100px;
+}
+
+#footer {
+    height: 100px;
+}
+
+#brothers {
+    height: calc(100% - 100px - 100px);
 }
