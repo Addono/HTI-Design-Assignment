@@ -41,36 +41,28 @@
                 );
             }
             
-            function showHealth() {
-                // Only transition when health is not the focus.
-                if(focus !== health) {
-                    focus = health;
+            function showBrother(newFocus, prevFocus) {
+                // Only transition when focus changes.
+                if(focus !== newFocus) {
+                    focus = newFocus;
                     
-                    health.children().fadeOut(fadeDuration);
-                    env.children().fadeOut(fadeDuration);
+                    newFocus.children().fadeOut(fadeDuration);
+                    prevFocus.children().fadeOut(fadeDuration);
 
-                    brotherLarge(health, fadeDuration);
-                    brotherSmall(env, fadeDuration);
+                    brotherLarge(newFocus, fadeDuration);
+                    brotherSmall(prevFocus, fadeDuration);
 
-                    health.find(".content").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
-                    env.find(".vertical").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
+                    newFocus.find(".content").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
+                    prevFocus.find(".vertical").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
                 }
             }
             
+            function showHealth() {
+                showBrother(health, env);
+            }
+            
             function showEnv() {
-                // Only transition when environment is not the focus.
-                if(focus !== env) {
-                    focus = env;
-                    
-                    env.children().fadeOut(fadeDuration);
-                    health.children().fadeOut(fadeDuration);
-
-                    brotherLarge(env, fadeDuration);
-                    brotherSmall(health, fadeDuration);
-
-                    env.find(".content").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
-                    health.find(".vertical").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
-                }
+                showBrother(env, health);
             }
             
             function initial() {
