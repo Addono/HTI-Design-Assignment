@@ -5,22 +5,139 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="./js/material.min.js"></script>
         
+        <!-- Import jQuery -->
+        <script src="./js/jquery-2.2.3.min.js"></script>
+        
         <!-- Import own javascript and css -->
         <link rel="stylesheet" href="./css/style.css">
+        <script>       
+            var env, health; // Contains the environment and health object.
+            
+            var wBrothersMin = 200; // The width of a brother when minimized in pixels.
+            var moveDuration = 300; // The moveDuration of the animation in miliseconds.
+            var fadeDuration = 300;
+            
+            var focus = null;
+            
+            function brotherLarge(brother, delay = 0) {
+                brother.delay(delay).animate(
+                        {width: health.parent().width() - wBrothersMin},
+                        {duration: moveDuration, queue:true}
+                );
+            }
+            
+            function brotherSmall(brother, delay = 0) {
+                brother.delay(delay).animate(
+                        {width: wBrothersMin},
+                        {duration: moveDuration, queue:true}
+                );
+            }
+            
+            function brotherEqual(brother, delay = 0) {
+                brother.delay(delay).animate(
+                        {width: brother.parent().width() / 2},
+                        {duration: moveDuration, queue: true}
+                );
+            }
+            
+            function showHealth() {
+                // Only transition when health is not the focus.
+                if(focus !== health) {
+                    focus = health;
+                    
+                    health.children().fadeOut(fadeDuration);
+                    env.children().fadeOut(fadeDuration);
+
+                    brotherLarge(health, fadeDuration);
+                    brotherSmall(env, fadeDuration);
+
+                    health.find(".content").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
+                    env.find(".vertical").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
+                }
+            }
+            
+            function showEnv() {
+                // Only transition when environment is not the focus.
+                if(focus !== env) {
+                    focus = env;
+                    
+                    env.children().fadeOut(fadeDuration);
+                    health.children().fadeOut(fadeDuration);
+
+                    brotherLarge(env, fadeDuration);
+                    brotherSmall(health, fadeDuration);
+
+                    env.find(".content").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
+                    health.find(".vertical").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
+                }
+            }
+            
+            function initial() {
+                // Only transition when the default view is not the focus.
+                if(focus !== "initial") {
+                    focus = "initial";
+                    
+                    env.children().fadeOut(fadeDuration);
+                    health.children().fadeOut(fadeDuration);
+
+                    brotherEqual(env, fadeDuration);
+                    brotherEqual(health, fadeDuration);
+
+                    env.find(".menu").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
+                    health.find(".menu").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
+                }
+            }
+            
+            $(document).ready(function(){
+                env = $("#environment");
+                health = $("#health");
+                
+                initial();
+            });
+        </script>
+        
     </header>
     
     <body>
-        <div id="header">
+        <div id="header" onclick="initial()">
             Some text
         </div> <!-- header -->
         
         <div id="brothers">
-            <div class="brother-page">
-            Health
+            <div id="health" class="brother-page" onclick="showHealth()">
+                <div class="menu">
+                    Hello, I am a menu page. Please, click on me to let me win from green!
+                </div>
+                
+                <div class="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac arcu tincidunt, aliquam augue luctus, laoreet elit. In ac facilisis velit, eu auctor neque. Duis pulvinar velit tortor, quis elementum sapien molestie quis. Nam luctus, lectus vitae auctor vestibulum, sem dui accumsan quam, nec pellentesque lorem augue vel quam. Cras odio urna, ultricies non ante et, rutrum elementum risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam congue, elit ut malesuada tincidunt, justo dui efficitur elit, nec placerat augue neque ornare ex. Aliquam malesuada rutrum urna.
+
+                    Fusce nec leo at nulla ultrices aliquam. Aenean dapibus justo at neque dignissim, non convallis augue semper. In ligula odio, sollicitudin quis mauris non, luctus volutpat erat. Sed porttitor sapien ac mattis feugiat. Curabitur magna odio, tincidunt sit amet ullamcorper vel, tempus ut felis. Duis non dignissim risus. Aenean ornare feugiat ligula at scelerisque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla facilisi.
+
+                    Ut in dignissim ipsum, ac congue lorem. Donec euismod hendrerit ipsum id finibus. Pellentesque scelerisque urna lacus, sed pharetra ex porttitor in. Nullam sollicitudin, ex nec auctor ultricies, diam risus tincidunt risus, in fringilla tellus enim id risus. Integer et ipsum id sapien ornare tincidunt. Nullam a ligula ut tortor molestie sodales cursus a orci. Morbi condimentum, sem ornare egestas efficitur, lacus tortor elementum est, dictum feugiat massa turpis nec eros. Ut sit amet nunc turpis. Nam vitae libero hendrerit, blandit nibh ac, commodo erat. Donec ligula sapien, commodo rutrum sapien vel, euismod semper lorem. Suspendisse sed mi diam. In pharetra ullamcorper erat sagittis vulputate.
+
+                    Quisque in augue non ante tristique accumsan. Pellentesque sed purus sem. Suspendisse maximus, nisi eu cursus suscipit, nisl nisi finibus velit, sit amet pretium dui leo at ex. Donec pharetra ipsum eget efficitur condimentum. Pellentesque quis fermentum arcu. Pellentesque dapibus purus eget ante finibus finibus. Sed ante turpis, lobortis vitae dapibus nec, suscipit sed velit. Pellentesque at nulla libero.
+
+                    Mauris vitae lorem sit amet lacus molestie iaculis efficitur nec sapien. Proin hendrerit tincidunt fringilla. Sed in pharetra tortor. Sed condimentum lectus id tristique accumsan. Sed laoreet urna a diam euismod auctor vel eget leo. Maecenas lobortis sagittis odio at congue. In hac habitasse platea dictumst. Cras congue vitae dui a pellentesque. Suspendisse risus metus, accumsan a lobortis at, eleifend sed lacus. Aliquam massa neque, finibus vitae est nec, eleifend pellentesque massa.
+                </div>
+                
+                <div class="vertical">
+                    I don't like being small :(
+                </div>
             </div>
             
-            <div class="brother-page">
-            Environment
+            <div id="environment" class="brother-page" onclick="showEnv()">
+                <div class="menu">
+                    I am also a menu page.
+                </div>
+                
+                <div class="content">
+                    Content
+                </div>
+                
+                <div class="vertical">
+                    Hello, I am a vertical div!
+                </div>
             </div>
         </div> <!-- brothers -->
         
