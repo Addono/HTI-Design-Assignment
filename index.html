@@ -11,89 +11,19 @@
         
         <!-- Import own javascript and css -->
         <link rel="stylesheet" href="./css/style.css">
-        <script>       
-            var env, health; // Contains the environment and health object.
-            
-            var wBrothersMin = 200; // The width of a brother when minimized in pixels.
-            var moveDuration = 300; // The moveDuration of the animation in miliseconds.
-            var fadeDuration = 300;
-            
-            var focus = null;
-            
-            function brotherLarge(brother, delay = 0) {
-                brother.delay(delay).animate(
-                        {width: health.parent().width() - wBrothersMin},
-                        {duration: moveDuration, queue:true}
-                );
-            }
-            
-            function brotherSmall(brother, delay = 0) {
-                brother.delay(delay).animate(
-                        {width: wBrothersMin},
-                        {duration: moveDuration, queue:true}
-                );
-            }
-            
-            function brotherEqual(brother, delay = 0) {
-                brother.delay(delay).animate(
-                        {width: brother.parent().width() / 2},
-                        {duration: moveDuration, queue: true}
-                );
-            }
-            
-            function showBrother(newFocus, prevFocus) {
-                // Only transition when focus changes.
-                if(focus !== newFocus) {
-                    focus = newFocus;
-                    
-                    newFocus.children().fadeOut(fadeDuration);
-                    prevFocus.children().fadeOut(fadeDuration);
-
-                    brotherLarge(newFocus, fadeDuration);
-                    brotherSmall(prevFocus, fadeDuration);
-
-                    newFocus.find(".content").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
-                    prevFocus.find(".vertical").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
-                }
-            }
-            
-            function showHealth() {
-                showBrother(health, env);
-            }
-            
-            function showEnv() {
-                showBrother(env, health);
-            }
-            
-            function initial() {
-                // Only transition when the default view is not the focus.
-                if(focus !== "initial") {
-                    focus = "initial";
-                    
-                    env.children().fadeOut(fadeDuration);
-                    health.children().fadeOut(fadeDuration);
-
-                    brotherEqual(env, fadeDuration);
-                    brotherEqual(health, fadeDuration);
-
-                    env.find(".menu").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
-                    health.find(".menu").delay(moveDuration + fadeDuration).fadeIn(fadeDuration);
-                }
-            }
-            
-            $(document).ready(function(){
-                env = $("#environment");
-                health = $("#health");
-                
-                initial();
-            });
-        </script>
+        <script src="./js/page-transitions.js"></script>
         
     </head>
     
     <body>
         <div id="header" onclick="initial()">
-            Some text
+            <div id="header-large">
+                <h1>Title</h1>
+            </div>
+            
+            <div id="header-small">
+                <h3>Title</h3>
+            </div>
         </div> <!-- header -->
         
         <div id="brothers">

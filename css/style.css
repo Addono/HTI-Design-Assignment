@@ -26,6 +26,6 @@
     color: white; // Set the text color to white.
 }
 
-.menu, .content, .vertical {
+.menu, .content, .vertical, #header-large, #header-small {
     display: none;
 }
