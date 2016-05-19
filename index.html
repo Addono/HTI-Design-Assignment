@@ -17,17 +17,27 @@
             <header onclick="initial()">
                 <div class="mdl-layout__header-row">
                   <span class="mdl-layout-title">
-                      Application Title <small>Date and time</small>
+                      Application Title
                   </span>
                   <div class="mdl-layout-spacer"></div>
+                    <div id="dateTime"></div>
+                    <div id="statusIcons">
+                        <i class="icon material-icons" id="phonelink_off">phonelink_off</i>
+                        <div class="mdl-tooltip" for="phonelink_off">
+                        Device is currently not connected. Make sure it has an active internet connection, until then no new data will be read.
+                        </div>
+                    </div>
+                  <!-- Disable search field
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
                     <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
                       <i class="material-icons">search</i>
                     </label>
+                      
                     <div class="mdl-textfield__expandable-holder">
                       <input class="mdl-textfield__input" type="text" id="search">
                       <label class="mdl-textfield__label" for="search">Enter your query...</label>
                     </div>
+                       -->
                   </div>
                 </div>
             </header>
@@ -35,7 +45,8 @@
         <div id="brothers">
             <div id="health" class="brother-page" onclick="showHealth()">
                 <div class="menu">
-                    Hello, I am a menu page. Please, click on me to let me win from green!
+                    <h1 class="menu-title">Health</h1>
+                    <img src="./img/ic_favorite_border_white.svg" />
                 </div>
                 
                 <div class="content">
@@ -53,32 +64,26 @@
                 <div class="vertical">
                     I don't like being small :(
                 </div>
-                
+            </div>
+            
+            <div id="environment" class="brother-page" onclick="showEnv()">
+                <div class="menu">
+                    I am also a menu page.
+                </div>
+
+                <div class="content">
+                    Content
+                </div>
+
+                <div class="vertical">
+                    Hello, I am a vertical div!
+                </div>
+
                 <div class="horizontal">
                     And now I am horizontal.
                 </div>
             </div>
-            
-            <a href="#" onclick="showEnv()">
-                <div id="environment" class="brother-page">
-                    <div class="menu">
-                        I am also a menu page.
-                    </div>
-
-                    <div class="content">
-                        Content
-                    </div>
-
-                    <div class="vertical">
-                        Hello, I am a vertical div!
-                    </div>
-
-                    <div class="horizontal">
-                        And now I am horizontal.
-                    </div>
-                </div>
-            </div> <!-- brothers -->
-        </a>
+        </div> <!-- brothers -->
         
         <div id="footer">
             <button id="show-dialog" type="button" class="mdl-button" style="width:100%; height: 100%"><i class="material-icons">settings</i>Settings</button>

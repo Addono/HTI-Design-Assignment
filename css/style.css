@@ -1,10 +1,11 @@
-// COLOR PALET
-// http://www.colourlovers.com/palette/1930/cheer_up_emo_kid
-// http://www.colourlovers.com/palette/110225/Vintage_Modern <--
+//                  COLOR PALETS
+// Tested:
+// "http://www.colourlovers.com/palette/1930/cheer_up_emo_kid"
 
-#date {
-    padding-bottom:10px;
-}
+// Current collor palet is a mix of "350 s u n s h i n e*" by WinterLover
+// "http://www.colourlovers.com/palette/2102649/350_s_u_n_s_h_i_n_e*"
+//  and "Vintage Modern" by ericaspooner
+// "http://www.colourlovers.com/palette/110225/Vintage_Modern"
 
 #title {
     font-size: 50px;
@@ -13,7 +14,7 @@
 
 #footer {
     height: 90px;
-    background-color: #F2C45A;
+    background-color: #EFED89;
 }
 
 #brothers {
@@ -28,13 +29,28 @@
 }
 
 #health {
-    background-color: #8C2318;
+    background-color: #DB3026;
     color: white; // Set the text color to white.
 }
 
+.menu {
+    transition: background .2s ease-in;
+}
+
+#health .menu:hover, #health .vertical:hover {
+    background-color: #D24B43;
+    cursor: pointer;
+}
+
+
 #environment {
-    background-color: #88A65E;
+    background-color: #7ABF66;
     color: white; // Set the text color to white.
+}
+
+#environment .menu:hover {
+    background-color: #8BD874;
+    cursor: pointer;
 }
 
 #settings {
@@ -100,7 +116,39 @@ td .material-icons {
     height: 100%;
 }
 
+.brother-page .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
 header {
-    background-color: #5E8C6A;
+    background-color: #E88A25;
+    transition: background .2s ease-in;
     color: white;
+}
+
+header:hover {
+    background-color: #ECA354;
+    cursor: pointer;
+}
+
+#dateTime {
+    font-size: 1.2em;
+    border-bottom-color: white;
+    border-bottom-width: 1px;
+    border-bottom-style: inset;
+    padding-left: .4em;
+    padding-right: .4em;
+    padding-bottom: 1px;
+    margin: .2em;
+}
+
+#statusIcons .icon {
+    margin: .2em;
+}
+.menu-title {
+    margin: 0px;
+    text-align: center;
 }
