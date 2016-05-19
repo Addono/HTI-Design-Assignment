@@ -3,11 +3,13 @@
 }
 
 #footer {
-    height: 100px;
+    height: 90px;
+    background-color: sandybrown;
 }
 
 #brothers {
-    height: calc(100% - 100px - 100px);
+    height: calc(100% - 100px - 90px);
+    width: 100%;
 }
 
 .brother-page {
@@ -26,6 +28,59 @@
     color: white; // Set the text color to white.
 }
 
-.menu, .content, .vertical, #header-large, #header-small {
+.menu, .content, .vertical, #header-large {
     display: none;
+}
+
+.dialog-large {
+    width: 90%
+}
+
+.health-settings, .environment-settings {
+    float: left;
+    width: 50%;
+}
+
+h3 {
+    margin-bottom: 0;
+}
+
+.lower-upper {
+    width: 100%;
+}
+
+.lower, .upper {
+    width: 50%;
+    float: left;
+    max-width: 150px;
+    padding-right: 1em;
+}
+
+.mdl-textfield__label {
+    color: #333;
+}
+
+.mdl-textfield__input {
+    border-bottom-color: #999;
+}
+
+td:first-child {  
+    padding-right: .7em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+td .material-icons {
+    height: 24px;
+    width: 24px;
+    float: right;
+}
+
+.mdl-tooltip {
+    font-size: .8em;
+}
+
+.fields {
+    width: 100%;
+    height: 100%;
 }
