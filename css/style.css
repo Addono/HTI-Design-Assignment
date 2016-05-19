@@ -1,9 +1,23 @@
 #header {
     height: 100px;
+    border-bottom: 2px solid grey;
+}
+
+#header div {
+    text-align: center;    
+}
+
+#date {
+    padding-bottom:10px;
+}
+#title {
+    font-size: 50px;
+    padding: 10px;  
 }
 
 #footer {
     height: 100px;
+    border-top: 2px solid grey;
 }
 
 #brothers {
@@ -24,6 +38,13 @@
 #environment {
     background-color: green;
     color: white; // Set the text color to white.
+}
+
+#settings {
+    width: 350px;
+    margin: 0 auto;
+    font-size:50px;
+    margin-top: 30px;  
 }
 
 .menu, .content, .vertical, .horizontal {
