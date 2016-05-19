@@ -3,7 +3,7 @@ var env, health; // Contains the environment, health, header and footer object.
 var wBrothersMin = 200; // The width of a brother when minimized in pixels.
 var hHeader = 70;
 var hBrother = 100;
-var hFooter = 20;
+var hFooter = 120;
 
 var moveDuration = 300; // The duration of the movement of the animation in miliseconds.
 var fadeDuration = 300; // The duration of each fade in miliseconds.
@@ -68,7 +68,7 @@ function showBrother(newFocus, prevFocus) {
         }
         
         focus = newFocus;
-
+        
         newFocus.add(prevFocus).children()
                 .fadeOut(fadeDuration);
 

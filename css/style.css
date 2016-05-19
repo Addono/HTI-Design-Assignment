@@ -48,7 +48,7 @@
     color: white; // Set the text color to white.
 }
 
-#environment .menu:hover {
+#environment .menu:hover, #environment .vertical:hover {
     background-color: #8BD874;
     cursor: pointer;
 }
@@ -61,6 +61,10 @@
 }
 .menu, .content, .vertical {
     display: none;
+}
+
+.content {
+    height: 100%;
 }
 
 .dialog-large {
@@ -107,16 +111,12 @@ td .material-icons {
     float: right;
 }
 
-.mdl-tooltip {
-    font-size: .8em;
-}
-
 .fields {
     width: 100%;
     height: 100%;
 }
 
-.brother-page .menu {
+.brother-page .menu, .brother-page .vertical {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -151,4 +151,54 @@ header:hover {
 .menu-title {
     margin: 0px;
     text-align: center;
+}
+
+.mdl-tooltip {
+    font-size: 1em;
+}
+
+body {
+    overflow:hidden;
+}
+
+.content .title {
+    margin: 0px;
+    margin-top: .2em;
+    margin-bottom: .2em;
+    margin-left: 1em;
+    font-size: 2.4em;
+}
+
+.line-chart {
+    background: url('../img/chart.png') center / cover;
+    color: black;
+    height: 100%;
+    width: 100%;
+}
+
+.map {
+    background: url('../img/map.png') center / cover;
+    color: black;
+    height: 100%;
+    width: 100%;
+}
+
+.card-1-1 {
+    height: 45%;
+    width: 48%;
+    margin: 1%;
+    margin-top: 0;
+    float: left;
+}
+
+.card-1-2 {
+    height: 92%;
+    width: 48%;
+    margin: 1%;
+    margin-top: 0;
+    float: left;
+}
+
+.mdl-card__menu {
+    height: 100%;
 }
