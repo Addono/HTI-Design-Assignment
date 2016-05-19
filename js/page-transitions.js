@@ -1,7 +1,7 @@
 var env, health; // Contains the environment, health, header and footer object.
             
 var wBrothersMin = 200; // The width of a brother when minimized in pixels.
-var hHeader = 200;
+var hHeader = 70;
 var hBrother = 100;
 var hFooter = 20;
 
@@ -101,8 +101,6 @@ $(document).ready(function(){
     settings = $("#settings");
     
     $("header").css("height", hHeader);
-    
-    header.css("height", hHeader);
     
     initial();
 });
