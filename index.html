@@ -353,17 +353,56 @@
 
                         <div class="environment-settings">
                             <h3>Environment</h3>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-                                <label class="mdl-textfield__label" for="sample4">Lower bound</label>
-                                <span class="mdl-textfield__error">Heart rate should be a number.</span>
-                            </div>
+                            <table>
+                                <!-- The heart rate field -->
+                                <tr>
+                                    <td>
+                                        <div id="tt3">Ambient humidity [%] <div class="icon material-icons">info outline</div></div>
+                                        <div class="mdl-tooltip" for="tt3">
+                                        Description of the prefered ambient humidity (for instance optimal for exercising).
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="lower-upper">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label lower">
+                                                <input class="mdl-textfield__input" type="text" value="40" pattern="[0-9]*(\.[0-9]+)?" id="heart-rate-low">
+                                                <label class="mdl-textfield__label" for="sample4">Lower bound</label>
+                                                <span class="mdl-textfield__error">Ambient humidity should be a number.</span>
+                                            </div>
 
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-                                <label class="mdl-textfield__label" for="sample4">Upper bound</label>
-                                <span class="mdl-textfield__error">Heart rate should be a number.</span>
-                            </div>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label upper">
+                                                <input class="mdl-textfield__input" type="text" value="60" pattern="[0-9]*(\.[0-9]+)?" id="heart-rate-high">
+                                                <label class="mdl-textfield__label" for="sample4">Upper bound</label>
+                                                <span class="mdl-textfield__error">Ambient Humidity should be a number.</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- The blood pressure field -->
+                                <tr>
+                                    <td>
+                                        <div id="tt3">Ambient temperature [Celcius]<div class="icon material-icons">info outline</div></div>
+                                        <div class="mdl-tooltip" for="tt4">
+                                        Description of the prefered ambient temperature (for instance optimal for exercising).
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="lower-upper">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label lower">
+                                                <input class="mdl-textfield__input" type="text" value="0" pattern="[0-9]*(\.[0-9]+)?" id="ambient-temperature-low">
+                                                <label class="mdl-textfield__label" for="sample4">Lower bound</label>
+                                                <span class="mdl-textfield__error">Ambient temperature should be a number.</span>
+                                            </div>
+
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label upper">
+                                                <input class="mdl-textfield__input" type="text" value="20" pattern="[0-9]*(\.[0-9]+)?" id="ambient-temperature-high">
+                                                <label class="mdl-textfield__label" for="sample4">Upper bound</label>
+                                                <span class="mdl-textfield__error">Ambient temperature should be a number.</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                            </table>
                         </div>
                     </div>
                     <div class="buttons">
